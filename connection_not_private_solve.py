@@ -12,6 +12,7 @@ driver_path = 'C:\\Users\\jadha\\OneDrive\\Desktop\\selenium\\chromedriver.exe'
 chrome_options = Options()
 chrome_options.add_argument('--allow-running-insecure-content')
 chrome_options.add_argument('--ignore-certificate-errors')
+chrome_options.set_capability('acceptInsecureCerts', True)
 
 # Initialize WebDriver with service and options
 service = Service(driver_path)
