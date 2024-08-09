@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Dropdown with Span Elements</title>
+    <style>
+        /* Dropdown wrapper and icon combined */
+        .e_multi_select_wrapper.e_down_icon {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Dropdown options container */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100%;
+            border: 1px solid #ddd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Styles for the options */
+        .dropdown-content span {
+            display: block;
+            padding: 8px 10px;
+            cursor: pointer;
+        }
+
+        /* Highlight option on hover */
+        .dropdown-content span:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown content when the dropdown is active */
+        .e_multi_select_wrapper.show .dropdown-content {
+            display: block;
+        }
+
+        /* Styles for selected values in the dropdown button */
+        .e_delim_values {
+            background-color: #28a745;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        /* Styles for selectable spans */
+        .e_delim_view.e_delim_values {
+            display: inline-block;
+            margin-right: 5px;
+            background-color: #007bff;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="e_multi_select_wrapper e_down_icon">
+        <div onclick="toggleDropdown()" class="e_delim_values">Select Options &#9660;</div>
+        <div class="dropdown-content">
+            <span class="e_delim_view" onclick="selectOption(this)">Option 1</span>
+            <span class="e_delim_view e_delim_values" onclick="selectOption(this)">Option 2</span>
+            <span class="e_delim_view e_delim_values" onclick="selectOption(this)">Option 3</span>
+        </div>
+    </div>
+
+    <script>
+        let selectedOptions = ["Option 2", "Option 3"];
+
+        function toggleDropdown() {
+            document.querySelector('.e_multi_select_wrapper').classList.toggle('show');
+        }
+
+        function selectOption(element) {
+            const value = element.textContent;
+
+            if (selectedOptions.includes(value)) {
+                selectedOptions = selectedOptions.filter(item => item !== value);
+                element.classList.remove('e_delim_values');
+            } else {
+                selectedOptions.push(value);
+                element.classList.add('e_delim_values');
+            }
+
+            updateSelectionDisplay();
+        }
+
+        function updateSelectionDisplay() {
+            const displayDiv = document.querySelector('.e_multi_select_wrapper > div:first-child');
+            if (selectedOptions.length > 0) {
+                displayDiv.textContent = selectedOptions.join(', ') + ' ▼';
+                displayDiv.classList.add('e_delim_values');
+            } else {
+                displayDiv.textContent = 'Select Options ▼';
+                displayDiv.classList.remove('e_delim_values');
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.closest('.e_multi_select_wrapper')) {
+                document.querySelector('.e_multi_select_wrapper').classList.remove('show');
+            }
+        }
+    </script>
+
+</body>
+</html>
