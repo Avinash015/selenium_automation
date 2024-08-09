@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            background: white;
+            color: black;
+        }
+        
+        th,
+        td {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        td button {
+            width: 100%;
+            height: 100%;
+            background: none;
+            border: none;
+            color: black;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        td button:hover {
+            background-color: lightblue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 align="center" style="color: orange;">
+        January 2021
+    </h2>
+    <br />
+
+    <!-- Form to submit the selected DOB -->
+    <form method="POST" action="/action_page.php">
+        <!-- Hidden input to hold the selected date -->
+        <input type="hidden" id="dobInput" name="birthday" value="">
+
+        <table bgcolor="lightgrey" align="center" cellspacing="21" cellpadding="21">
+            <thead>
+                <tr>
+                    <th style="color: white; background: purple;">Sun</th>
+                    <th style="color: white; background: purple;">Mon</th>
+                    <th style="color: white; background: purple;">Tue</th>
+                    <th style="color: white; background: purple;">Wed</th>
+                    <th style="color: white; background: purple;">Thu</th>
+                    <th style="color: white; background: purple;">Fri</th>
+                    <th style="color: white; background: purple;">Sat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button type="button" onclick="selectDate('2021-01-01')">1</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-02')">2</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="selectDate('2021-01-03')">3</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-04')">4</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-05')">5</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-06')">6</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-07')">7</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-08')">8</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-09')">9</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="selectDate('2021-01-10')">10</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-11')">11</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-12')">12</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-13')">13</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-14')">14</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-15')">15</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-16')">16</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="selectDate('2021-01-17')">17</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-18')">18</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-19')">19</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-20')">20</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-21')">21</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-22')">22</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-23')">23</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="selectDate('2021-01-24')">24</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-25')">25</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-26')">26</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-27')">27</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-28')">28</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-29')">29</button></td>
+                    <td><button type="button" onclick="selectDate('2021-01-30')">30</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="selectDate('2021-01-31')">31</button></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <!-- Submit Button to send the selected date -->
+        <div align="center">
+            <input type="submit" value="Submit DOB">
+        </div>
+    </form>
+
+    <script>
+        function selectDate(date) {
+            document.getElementById('dobInput').value = date;
+        }
+    </script>
+</body>
+
+</html>
